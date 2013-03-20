@@ -17,7 +17,7 @@ namespace JET.AjaxLibrary
     public class InvokeHandler
     {
         /// <summary>
-        /// 放回方法的委托
+        /// 返回方法的委托
         /// </summary>
         /// <param name="methodInfo"></param>
         /// <returns></returns>

@@ -5,8 +5,16 @@ using System.Text;
 
 namespace JET.AjaxLibrary
 {
+    /// <summary>
+    /// ajax异常处理类
+    /// </summary>
     public class AjaxExceptionHelper
     {
+        /// <summary>
+        /// 异常进程处理
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="ex"></param>
         internal static void ExceptionProcess(HttpContext context, Exception ex)
         {
             WriteExceptionToResponse(context,ex);
