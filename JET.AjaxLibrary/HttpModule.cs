@@ -26,17 +26,18 @@ namespace JET.AjaxLibrary
         }
 
         /// <summary>
-        /// 当安全模块已验证用户授权是发生
+        /// 当安全模块已验证用户授权时发生
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void context_AuthorizeRequest(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            //HttpApplication application = (HttpApplication)(sender);
+            HttpApplication application = (HttpApplication)(sender);
             //if (application.Request.HttpMethod == "POST") { 
                 
             //}
+            application.Context.Response.Write("--Boot--");
         }
     }
 }

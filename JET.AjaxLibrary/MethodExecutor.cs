@@ -20,6 +20,9 @@ namespace JET.AjaxLibrary
         public static void ProcessRequest(HttpContext context,Type type,string MethodName) {
             //获取方法名
             MethodInfo methodInfo = type.GetMethod(MethodName);
+            if (methodInfo == null) {
+                AjaxExceptionHelper.ExceptionProcess(context, new Exception((string.Format(Tip.MethodNotFound, MethodName,type.Assembly.FullName))));
+            }
             //获取方法的委托
             FastInvokeHandler handler = InvokeHandler.GetMethodInvoker(methodInfo);
             //执行方法

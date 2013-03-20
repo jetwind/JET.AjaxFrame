@@ -28,6 +28,7 @@ namespace JET.AjaxLibrary
                 throw new ArgumentNullException("HttpContext");
             }
             context.Response.Write(ex.Message);
+            context.Response.End();
 
         }
     }

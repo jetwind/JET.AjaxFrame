@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Reflection;
 
 namespace AjaxLibWebTest
 {
@@ -11,7 +12,9 @@ namespace AjaxLibWebTest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack) {
+                Assembly ass = Assembly.LoadFrom("AjaxLibWebTest.dll");
+            }
         }
     }
 }

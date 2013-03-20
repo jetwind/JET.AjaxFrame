@@ -36,6 +36,7 @@ namespace JET.AjaxLibrary
         public void ProcessRequest(HttpContext context)
         {
             string[] classMethon = GetClassNameAndMethon(context);
+            //获取类型缓存器
             Type type = GetTypeChche(classMethon[0]);
             if (type == null)
             {
@@ -56,6 +57,9 @@ namespace JET.AjaxLibrary
         /// <returns></returns>
         private Type GetTypeChche(string sKey)
         {
+            if (AssemblyType == null) {
+                return null;
+            }
             string AssemblyName = AssemblyType.Assembly.ToString();
             Assembly assembly = Assembly.Load(AssemblyName);
             if (RefKeyValue.ContainsKey(sKey))
@@ -71,15 +75,14 @@ namespace JET.AjaxLibrary
                 }
                 RefKeyValue.Add(sKey, type);
                 return type;
-
             }
         }
 
         /// <summary>
         /// 获取类名和方法名
         /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="context">当前http对象</param>
+        /// <returns>返回类名+方法名</returns>
         private string[] GetClassNameAndMethon(HttpContext context) {
             string url = context.Request.Url.ToString();
             string fileName = System.IO.Path.GetFileNameWithoutExtension(url);
