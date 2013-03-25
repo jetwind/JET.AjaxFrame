@@ -20,23 +20,41 @@ namespace AjaxLibWebTest.UControls
         {
             new Comment
             {
-                CreateTime = DateTime.Parse("2007-1-1"),
-                Content = "今天天气不错"
+                CreateTime = DateTime.Parse("2013-01-01"),
+                Content = "Cookie引发网民“禁止跟踪”热潮"
             },
             new Comment
             {
-                CreateTime = DateTime.Parse("2007-1-2"),
-                Content = "挺风和日丽的"
+                CreateTime = DateTime.Parse("2007-01-02"),
+                Content = "国美电器2012年净亏损5.97亿元 去年同期盈利"
             },
             new Comment
             {
-                CreateTime = DateTime.Parse("2007-1-3"),
-                Content = "我们下午没有课"
+                CreateTime = DateTime.Parse("2013-01-03"),
+                Content = "移动视频业硝烟弥漫 欢聚时代称微信不构成威胁"
             },
             new Comment
             {
-                CreateTime = DateTime.Parse("2007-1-1"),
-                Content = "这的确挺爽的"
+                CreateTime = DateTime.Parse("2013-01-01"),
+                Content = "苹果公司内部言论闭塞 员工组建“秘密吐槽群”"
+            }
+            ,
+            new Comment
+            {
+                CreateTime = DateTime.Parse("2013-01-01"),
+                Content = "易会应用突破10万用户 易会网正式上线"
+            }
+            ,
+            new Comment
+            {
+                CreateTime = DateTime.Parse("2013-01-01"),
+                Content = "中搜第三代搜索的新掘金模式"
+            }
+            ,
+            new Comment
+            {
+                CreateTime = DateTime.Parse("2013-01-01"),
+                Content = "腾讯电商加速整合 QQ商城合并至QQ网购"
             }
         };
     }

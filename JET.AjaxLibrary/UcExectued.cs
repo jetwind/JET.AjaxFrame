@@ -2,38 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.UI;
 using System.IO;
+using System.Web;
 
 namespace JET.AjaxLibrary
 {
-    public class UcExecutor<T> where T:UserControl
+    /// <summary>
+    /// 
+    /// </summary>
+    public class UcExectued
     {
+
         /// <summary>
         /// 主页面用来加载control
         /// </summary>
         static Page MasterPage;
-
-        /// <summary>
-        /// 加载控件
-        /// </summary>
-        /// <returns></returns>
-        public T LoadControl(string controlPath) {
-            MasterPage = new Page();
-            return (T)MasterPage.LoadControl(controlPath);
-        }
-
-        /// <summary>
-        /// 执行页面
-        /// </summary>
-        public string ExecutorPage(T control) {
-            StringWriter outStream = new StringWriter();
-            MasterPage.Controls.Add(control);
-            HttpContext.Current.Server.Execute(MasterPage, outStream, false);
-            return outStream.ToString();
-
-        }
 
 
         /// <summary>
@@ -41,13 +25,13 @@ namespace JET.AjaxLibrary
         /// </summary>
         /// <param name="controlPath"></param>
         /// <returns></returns>
-        public static string ExecutorAscx(string controlPath) {
+        public static string ExecutorAscx(string controlPath)
+        {
             MasterPage = new Page();
             StringWriter outStream = new StringWriter();
             MasterPage.Controls.Add(MasterPage.LoadControl(controlPath));
             HttpContext.Current.Server.Execute(MasterPage, outStream, false);
             return outStream.ToString();
         }
-
     }
 }

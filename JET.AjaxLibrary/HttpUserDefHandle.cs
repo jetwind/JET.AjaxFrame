@@ -62,20 +62,23 @@ namespace JET.AjaxLibrary
             }
             string AssemblyName = AssemblyType.Assembly.ToString();
             Assembly assembly = Assembly.Load(AssemblyName);
-            if (RefKeyValue.ContainsKey(sKey))
-            {
-                return RefKeyValue[sKey];
-            }
-            else
-            {
+            //if (RefKeyValue.ContainsKey(sKey))
+            //{
+            //    return RefKeyValue[sKey];
+            //}
+            //else
+            //{
                 Type type = assembly.GetType(AssemblyType.Namespace + "." + sKey, false, false);
+                if (type == null) {
+                    AjaxExceptionHelper.ExceptionProcess(HttpContext.Current, new Exception(string.Format(Tip.TypeNotFound, AssemblyType.Namespace + "." + sKey)));
+                }
                 if (RefKeyValue.Count == 50) //缓存项达到50，清空
                 {
                     RefKeyValue.Clear();
                 }
                 RefKeyValue.Add(sKey, type);
                 return type;
-            }
+            //}
         }
 
         /// <summary>

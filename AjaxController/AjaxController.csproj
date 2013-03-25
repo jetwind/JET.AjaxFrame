@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37148ADD-BC1C-45B7-8E40-CBF3981F1F3A}</ProjectGuid>
+    <ProjectGuid>{0B0E6D5A-6165-48B6-9516-FE04F47B4954}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JET.AjaxLibrary</RootNamespace>
-    <AssemblyName>JET.AjaxLibrary</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>AjaxController</RootNamespace>
+    <AssemblyName>AjaxController</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -33,25 +33,16 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjaxExceptionHelper.cs" />
-    <Compile Include="UcExectued.cs" />
-    <Compile Include="UcExecutor.cs" />
-    <Compile Include="HttpUcHandle.cs" />
-    <Compile Include="HttpMIME.cs" />
-    <Compile Include="HttpModule.cs" />
-    <Compile Include="HttpUserDefHandle.cs" />
-    <Compile Include="InvokeHandler.cs" />
-    <Compile Include="MethodExecutor.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tip.cs" />
-    <Compile Include="UrlHelper.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

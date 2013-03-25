@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JET.AjaxLibrary", "JET.Ajax
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjaxLibWebTest", "AjaxLibWebTest\AjaxLibWebTest.csproj", "{F691A16C-16CC-466B-963D-9226318F9091}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjaxController", "AjaxController\AjaxController.csproj", "{0B0E6D5A-6165-48B6-9516-FE04F47B4954}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{F691A16C-16CC-466B-963D-9226318F9091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F691A16C-16CC-466B-963D-9226318F9091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F691A16C-16CC-466B-963D-9226318F9091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B0E6D5A-6165-48B6-9516-FE04F47B4954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0E6D5A-6165-48B6-9516-FE04F47B4954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0E6D5A-6165-48B6-9516-FE04F47B4954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0E6D5A-6165-48B6-9516-FE04F47B4954}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

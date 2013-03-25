@@ -33,11 +33,11 @@ namespace JET.AjaxLibrary
         private void context_AuthorizeRequest(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            HttpApplication application = (HttpApplication)(sender);
-            //if (application.Request.HttpMethod == "POST") { 
+            //HttpApplication application = (HttpApplication)(sender);
+            ////if (application.Request.HttpMethod == "POST") { 
                 
-            //}
-            application.Context.Response.Write("--Boot--");
+            ////}
+            //application.Context.Response.Write("--Boot--");
         }
     }
 }

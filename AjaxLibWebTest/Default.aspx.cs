@@ -13,10 +13,14 @@ namespace AjaxLibWebTest
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) {
-                //Assembly ass = Assembly.LoadFrom("AjaxLibWebTest.dll");
+                Assembly ass = Assembly.Load("AjaxController");
+                Type[] types = ass.GetTypes();
+                for (int i = 0; i < types.Length; i++) {
+                    Response.Write(types[i].FullName);
+                }
 
-                JET.AjaxLibrary.UcExecutor<UControls.OrderList> uc = new JET.AjaxLibrary.UcExecutor<UControls.OrderList>();
-                Response.Write(uc.ExecutorPage(uc.LoadControl("/Ucontrols/orderList.ascx")));
+                //JET.AjaxLibrary.UcExecutor<UControls.OrderList> uc = new JET.AjaxLibrary.UcExecutor<UControls.OrderList>();
+                //Response.Write(uc.ExecutorPage(uc.LoadControl("/Ucontrols/orderList.ascx")));
             }
         }
     }

@@ -12,7 +12,7 @@ namespace AjaxLibWebTest
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            Type type = typeof(AjaxLibWebTest.Order);
+            Type type = typeof(AjaxController.Order);
             JET.AjaxLibrary.HttpUserDefHandle.AssemblyType = type;
         }
 

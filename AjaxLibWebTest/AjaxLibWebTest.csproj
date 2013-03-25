@@ -93,6 +93,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AjaxController\AjaxController.csproj">
+      <Project>{0b0e6d5a-6165-48b6-9516-fe04f47b4954}</Project>
+      <Name>AjaxController</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JET.AjaxLibrary\JET.AjaxLibrary.csproj">
       <Project>{37148add-bc1c-45b7-8e40-cbf3981f1f3a}</Project>
       <Name>JET.AjaxLibrary</Name>
