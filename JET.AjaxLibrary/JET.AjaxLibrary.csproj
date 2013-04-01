@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AjaxExceptionHelper.cs" />
+    <Compile Include="HttpHelper.cs" />
     <Compile Include="UcExectued.cs" />
     <Compile Include="UcExecutor.cs" />
     <Compile Include="HttpUcHandle.cs" />

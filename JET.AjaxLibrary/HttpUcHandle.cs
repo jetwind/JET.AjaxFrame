@@ -23,12 +23,14 @@ namespace JET.AjaxLibrary
         /// <param name="context"></param>
         public void ProcessRequest(HttpContext context)
         {
+            HttpHelper.VerifyIsAjaxRequest(context);
             string FilePath = context.Request.CurrentExecutionFilePath;
             string url = UrlHelper.GetPhyscialUrl(FilePath);
+            string QueryString = context.Request.QueryString.ToString();
             if (!File.Exists(url)) {
-                AjaxExceptionHelper.ExceptionProcess(context, new Exception(string.Format(Tip.URLNotFound, url)));
+                AjaxExceptionHelper.ExceptionProcess(context, new Exception(string.Format(Tip.ControlNotFound, url)));
             }
-            context.Response.Write(UcExectued.ExecutorAscx(FilePath));
+            context.Response.Write(UcExectued.ExecutorAscx(FilePath, QueryString));
             context.Response.End();
         }
     }

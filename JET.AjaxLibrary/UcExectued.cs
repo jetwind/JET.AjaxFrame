@@ -23,14 +23,14 @@ namespace JET.AjaxLibrary
         /// <summary>
         /// 根据路径执行ascx控件
         /// </summary>
-        /// <param name="controlPath"></param>
+        /// <param name="controlPath">空间的虚拟路径</param>
         /// <returns></returns>
-        public static string ExecutorAscx(string controlPath)
+        public static string ExecutorAscx(string controlPath,string requestQueryString)
         {
             MasterPage = new Page();
             StringWriter outStream = new StringWriter();
             MasterPage.Controls.Add(MasterPage.LoadControl(controlPath));
-            HttpContext.Current.Server.Execute(MasterPage, outStream, false);
+            HttpContext.Current.Server.Execute(MasterPage, outStream, true);
             return outStream.ToString();
         }
     }

@@ -23,6 +23,11 @@ namespace JET.AjaxLibrary
         /// <summary>
         /// 路径未找到
         /// </summary>
-        public static readonly string URLNotFound = "控件在该目录下未找到：{0}！";
+        public static readonly string ControlNotFound = "控件在该目录下未找到：{0}！";
+
+        /// <summary>
+        /// 请求不合法
+        /// </summary>
+        public static readonly string RequestIsUnLawFul = "非法请求，地址：{0}！";
     }
 }

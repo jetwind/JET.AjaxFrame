@@ -19,8 +19,9 @@ namespace JET.AjaxLibrary
         /// <param name="MethodName">方法名</param>
         public static void ProcessRequest(HttpContext context,Type type,string MethodName) {
             //获取方法名
-            MethodInfo methodInfo = type.GetMethod(MethodName);
-            if (methodInfo == null) {
+            MethodInfo methodInfo = type.GetMethod(MethodName,BindingFlags.Instance|BindingFlags.Public);
+            if (methodInfo == null) 
+            {
                 AjaxExceptionHelper.ExceptionProcess(context, new Exception((string.Format(Tip.MethodNotFound, MethodName,type.Assembly.FullName))));
             }
             //获取方法的委托
@@ -29,9 +30,10 @@ namespace JET.AjaxLibrary
             object Result = handler(type, null);
             //设置文本类型
             context.Response.ContentType = HttpMIME.Text.ToString();
-            if (context.Response.IsRequestBeingRedirected)
+            if (!context.Response.IsRequestBeingRedirected)
             {
                 context.Response.Write(Result);
+                context.Response.End();
             }
             else 
             {
