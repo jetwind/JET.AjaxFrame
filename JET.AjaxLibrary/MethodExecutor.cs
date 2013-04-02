@@ -19,15 +19,19 @@ namespace JET.AjaxLibrary
         /// <param name="MethodName">方法名</param>
         public static void ProcessRequest(HttpContext context,Type type,string MethodName) {
             //获取方法名
-            MethodInfo methodInfo = type.GetMethod(MethodName,BindingFlags.Instance|BindingFlags.Public);
+            MethodInfo methodInfo = type.GetMethod(MethodName,BindingFlags.Instance|BindingFlags.Public | BindingFlags.Static);
             if (methodInfo == null) 
             {
                 AjaxExceptionHelper.ExceptionProcess(context, new Exception((string.Format(Tip.MethodNotFound, MethodName,type.Assembly.FullName))));
             }
+            object Obj=null;
+            if(!methodInfo.IsStatic){
+                Obj = Activator.CreateInstance(type);
+            }
             //获取方法的委托
             FastInvokeHandler handler = InvokeHandler.GetMethodInvoker(methodInfo);
             //执行方法
-            object Result = handler(type, null);
+            object Result = handler(Obj, null);
             //设置文本类型
             context.Response.ContentType = HttpMIME.Text.ToString();
             if (!context.Response.IsRequestBeingRedirected)

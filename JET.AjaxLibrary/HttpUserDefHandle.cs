@@ -1,15 +1,17 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Text;
 using System.Reflection;
+using System.Web.SessionState;
 
 namespace JET.AjaxLibrary
 {
     /// <summary>
-    /// 自定义后缀名的处理球
+    /// 自定义后缀名的处理,新增了继承session接口
     /// </summary>
-    public class HttpUserDefHandle:IHttpHandler
+    public class HttpUserDefHandle : IHttpHandler, IRequiresSessionState
     {
         /// <summary>
         /// 程序集名
