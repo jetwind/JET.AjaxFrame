@@ -32,16 +32,17 @@ namespace JET.AjaxLibrary
             FastInvokeHandler handler = InvokeHandler.GetMethodInvoker(methodInfo);
             //执行方法
             object Result = handler(Obj, null);
+            context.Response.Write(Result);
+            string Redirecturl = "";// HttpContextHelper.GetRequireRedirectedUrl();
             //设置文本类型
-            context.Response.ContentType = HttpMIME.Text.ToString();
-            if (!context.Response.IsRequestBeingRedirected)
+            //context.Response.ContentType = HttpMIME.Text.ToString();
+            if (context.Response.IsRequestBeingRedirected)
             {
-                context.Response.Write(Result);
                 context.Response.End();
             }
-            else 
+            else if(Redirecturl.Length>0) 
             {
-                string Redirecturl = "";// HttpContextHelper.GetRequireRedirectedUrl();
+                
                 context.Server.Transfer(Redirecturl, true);
             }
         }
