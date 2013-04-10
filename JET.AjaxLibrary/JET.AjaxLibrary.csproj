@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjaxCallChecker.cs" />
+    <Compile Include="AjaxCallCheckHandler.cs" />
+    <Compile Include="AjaxCallEventArgs.cs" />
+    <Compile Include="AjaxCallType.cs" />
     <Compile Include="AjaxExceptionHelper.cs" />
     <Compile Include="HttpHelper.cs" />
     <Compile Include="UcExectued.cs" />

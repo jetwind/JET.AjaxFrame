@@ -20,5 +20,15 @@ namespace JET.AjaxLibrary
                 AjaxExceptionHelper.ExceptionProcess(context, new Exception(string.Format(Tip.RequestIsUnLawFul,context.Request.Url.ToString())));
             }
         }
+
+        public static void WriteSimpleMessage(HttpContext context, string message)
+        {
+            if ((context != null) && !string.IsNullOrEmpty(message))
+            {
+                context.Response.ContentType = "text/plain";
+                context.Response.Write(message);
+                context.Response.End();
+            }
+        }
     }
 }
