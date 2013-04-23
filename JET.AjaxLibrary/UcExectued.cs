@@ -13,7 +13,9 @@ namespace JET.AjaxLibrary
     /// </summary>
     public class UcExectued
     {
-
+        /// <summary>
+        /// ascx拦截器事件
+        /// </summary>
         public static event AscxInterceptorHandler AscxInterceptor;
 
         /// <summary>

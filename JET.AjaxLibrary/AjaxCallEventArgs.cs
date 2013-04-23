@@ -7,7 +7,7 @@ using System.Web.UI;
 namespace JET.AjaxLibrary
 {
     /// <summary>
-    /// 定义ajax数据类基类
+    /// 定义ajax检查器事件基类
     /// </summary>
     public class AjaxCallEventArgs:EventArgs
     {
@@ -31,6 +31,11 @@ namespace JET.AjaxLibrary
         /// </summary>
         public string DenyInfoMsg;
 
+        /// <summary>
+        /// 构造函数初始化
+        /// </summary>
+        /// <param name="context">HTTP对象</param>
+        /// <param name="ajaxCallType"></param>
         public AjaxCallEventArgs(HttpContext context, AjaxCallType ajaxCallType)
         {
             this.context = context;
@@ -39,10 +44,14 @@ namespace JET.AjaxLibrary
 
     }
 
-
+    /// <summary>
+    /// ascx拦截器事件数据
+    /// </summary>
     public class AscxInterceptorEventArgs : EventArgs
     {
-
+        /// <summary>
+        /// 当前控件对象
+        /// </summary>
         public Control control;
         /// <summary>
         /// 是否容许执行
@@ -60,7 +69,7 @@ namespace JET.AjaxLibrary
         public HttpContext context;
 
         /// <summary>
-        /// 
+        /// 构造函数初始化
         /// </summary>
         /// <param name="ctl"></param>
         public AscxInterceptorEventArgs(HttpContext context, Control ctl)

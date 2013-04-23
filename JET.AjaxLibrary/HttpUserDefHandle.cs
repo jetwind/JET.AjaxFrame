@@ -92,10 +92,10 @@ namespace JET.AjaxLibrary
         /// <param name="context">当前http对象</param>
         /// <returns>返回类名+方法名</returns>
         private string[] GetClassNameAndMethon(HttpContext context) {
-            string url = context.Request.Url.ToString();
-            string fileName = System.IO.Path.GetFileNameWithoutExtension(url);
+            string[] Segments = context.Request.Url.Segments;
+            string fileName = Segments[Segments.Length - 1];
             string[] paras = fileName.Split('.');
-            if (paras.Length != 2) {
+            if (paras.Length != 3) {
                 throw new ArgumentException("请求URL参数不正确！");
             }
             return paras;

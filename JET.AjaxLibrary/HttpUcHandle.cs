@@ -43,7 +43,7 @@ namespace JET.AjaxLibrary
         {
             if (AjaxCallChecker.isAllow(context, OnAjaxCall, AjaxCallType.HttpUcHandle))
             {
-                HttpHelper.VerifyIsAjaxRequest(context);
+                //HttpHelper.VerifyIsAjaxRequest(context);
                 string FilePath = context.Request.CurrentExecutionFilePath;
                 string url = UrlHelper.GetPhyscialUrl(FilePath);
                 string QueryString = context.Request.QueryString.ToString();
