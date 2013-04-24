@@ -34,18 +34,21 @@ namespace JET.AjaxLibrary
         /// <summary>
         /// http进程处理
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">当前httpcontex对象</param>
         public void ProcessRequest(HttpContext context)
         {
             string[] classMethon = GetClassNameAndMethon(context);
             //获取类型缓存器
             Type type = GetTypeChche(classMethon[0]);
+            //如果类型获取为空
             if (type == null)
             {
+                //处理异常
                 AjaxExceptionHelper.ExceptionProcess(context, new Exception((string.Format(Tip.TypeNotFound, classMethon[0]))));
             }
             else 
             {
+                //调用方法执行器
                 MethodExecutor.ProcessRequest(context, type, classMethon[1]);
             }
 
@@ -63,21 +66,22 @@ namespace JET.AjaxLibrary
             {
                 return null;
             }
-            string AssemblyName = AssemblyType.Assembly.ToString();
-            Assembly assembly = Assembly.Load(AssemblyName);
             if (RefKeyValue.ContainsKey(sKey))
             {
                 return RefKeyValue[sKey];
             }
             else
             {
+                string AssemblyName = AssemblyType.Assembly.ToString();
+                Assembly assembly = Assembly.Load(AssemblyName);
+                //忽略大小写查询程序集
                 Type type = assembly.GetType(AssemblyType.Namespace + "." + sKey, false,true);
                 //assembly.CreateInstance(AssemblyType.Namespace + "." + sKey, true);
                 if (type == null) 
                 {
                     AjaxExceptionHelper.ExceptionProcess(HttpContext.Current, new Exception(string.Format(Tip.TypeNotFound, AssemblyType.Namespace + "." + sKey)));
                 }
-                if (RefKeyValue.Count == 100) //缓存项达到50，清空
+                if (RefKeyValue.Count == 100) //缓存项达到100，清空
                 {
                     RefKeyValue.Clear();
                 }

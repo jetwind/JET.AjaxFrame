@@ -21,6 +21,11 @@ namespace JET.AjaxLibrary
             }
         }
 
+        /// <summary>
+        /// 向http管道输出信息
+        /// </summary>
+        /// <param name="context">当前http对象</param>
+        /// <param name="message">提示信息</param>
         public static void WriteSimpleMessage(HttpContext context, string message)
         {
             if ((context != null) && !string.IsNullOrEmpty(message))

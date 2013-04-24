@@ -9,7 +9,7 @@ using System.Web;
 namespace JET.AjaxLibrary
 {
     /// <summary>
-    /// 
+    /// 用户控件执行器
     /// </summary>
     public class UcExectued
     {

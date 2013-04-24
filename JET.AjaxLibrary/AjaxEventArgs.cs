@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Text;
 using System.Web.UI;
+using System.Reflection;
 
 namespace JET.AjaxLibrary
 {
@@ -45,7 +46,7 @@ namespace JET.AjaxLibrary
     }
 
     /// <summary>
-    /// ascx拦截器事件数据
+    /// 定义ascx拦截器事件数据
     /// </summary>
     public class AscxInterceptorEventArgs : EventArgs
     {
@@ -76,6 +77,43 @@ namespace JET.AjaxLibrary
         {
             this.context = context;
             this.control = ctl;
+        }
+    }
+
+    /// <summary>
+    /// 定义执行方法的拦截器事件数据
+    /// </summary>
+    public class MethodInterceptorEventArgs : EventArgs
+    {
+        /// <summary>
+        /// 当前方法对象
+        /// </summary>
+        public MethodInfo methodInfo;
+        
+        /// <summary>
+        /// 是否容许执行
+        /// </summary>
+        public bool isAllow;
+
+        /// <summary>
+        /// 信息提示
+        /// </summary>
+        public string DenyInfoMsg;
+
+        /// <summary>
+        /// 当前handle对象
+        /// </summary>
+        public HttpContext context;
+
+        /// <summary>
+        /// 构造函数初始化
+        /// </summary>
+        /// <param name="context">当前http对象</param>
+        /// <param name="methodInfo">当前调用的方法信息</param>
+        public MethodInterceptorEventArgs(HttpContext context, MethodInfo methodInfo)
+        {
+            this.context = context;
+            this.methodInfo = methodInfo;
         }
     }
 
