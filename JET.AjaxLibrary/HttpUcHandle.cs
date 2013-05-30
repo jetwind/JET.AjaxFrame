@@ -49,6 +49,7 @@ namespace JET.AjaxLibrary
                 string QueryString = context.Request.QueryString.ToString();
                 if (!File.Exists(url))
                 {
+                    //如果路径不存在,异常处理
                     AjaxExceptionHelper.ExceptionProcess(context, new Exception(string.Format(Tip.ControlNotFound, url)));
                 }
                 context.Response.Write(UcExectued.ExecutorAscx(FilePath, QueryString));

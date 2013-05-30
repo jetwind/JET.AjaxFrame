@@ -9,7 +9,11 @@ using System.Web;
 namespace JET.AjaxLibrary
 {
     /// <summary>
+<<<<<<< HEAD
     /// 用户控件执行器
+=======
+    /// 执行对ascx的直接请求
+>>>>>>> 2013-05-18
     /// </summary>
     public class UcExectued
     {

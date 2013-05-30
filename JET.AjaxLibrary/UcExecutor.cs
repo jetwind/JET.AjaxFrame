@@ -8,6 +8,10 @@ using System.IO;
 
 namespace JET.AjaxLibrary
 {
+    /// <summary>
+    /// 提供对用户控件的直接执行,模拟page生命周期,采用了老赵的解决方案!
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class UcExecutor<T> where T:UserControl
     {
         /// <summary>
@@ -34,13 +38,14 @@ namespace JET.AjaxLibrary
             return outStream.ToString();
 
         }
+        
 
 
         /// <summary>
-        /// 根据路径执行ascx控件
+        /// 根据路径执行用户控件,返回控件运行完毕后的输出流
         /// </summary>
-        /// <param name="controlPath"></param>
-        /// <returns></returns>
+        /// <param name="controlPath">控件路径,相对路径</param>
+        /// <returns>return the control</returns>
         public static string ExecutorAscx(string controlPath) {
             MasterPage = new Page();
             StringWriter outStream = new StringWriter();
